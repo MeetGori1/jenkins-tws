@@ -26,3 +26,11 @@ sudo apt-get install jenkins
 ```
 sudo systemctl enable jenkins
 ```
+
+4. jenkins runs on port 8080 need to update firewall rules according
+5. first time jenkins needs default password, by accessing it by using this in instance 
+ ```
+   sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+---
+then go with default options and need to create declaritive pipeline and also need to create other agent for better performance
