@@ -1,4 +1,5 @@
 # jenkins-tws
+**Set up Jenikins on Cloud Incatance**
 
 1. create instance and install java:
 
@@ -33,4 +34,7 @@ sudo systemctl enable jenkins
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 ---
-then go with default options and need to create declaritive pipeline and also need to create other agent for better performance
+**Set up Pipelines**
+1. Create Other Instance for agent
+
+1. go with default options and need to create declaritive pipeline
