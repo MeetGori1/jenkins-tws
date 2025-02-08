@@ -29,11 +29,16 @@ sudo systemctl enable jenkins
 ```
 
 4. jenkins runs on port 8080 need to update firewall rules according
-5. first time jenkins needs default password, by accessing it by using this in instance 
+5. to check jenkins is runnig or not
+   ```
+     sudo systemctl status jenkins
+    ```
+7. first time jenkins needs default password, by accessing it by using this in instance 
  ```
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 ---
+
 **Set up Pipelines**
 1. Create Other Instance for agent
 
