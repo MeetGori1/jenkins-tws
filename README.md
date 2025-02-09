@@ -70,8 +70,8 @@ sudo systemctl enable jenkins
 ---
 **Set up Pipeline**
 
-  ```
 1. basic structure
+  ```
 pipeline {
     agent {label "reactCICD"}
 
@@ -97,8 +97,24 @@ pipeline {
             }
         }
     }
-}
-    ```
+}```
+
+2. use pipeline stage view plugin to view all stages of pipelien in gui format
+3. agent needs to require docker
+```
+sudo apt-get install docker.io
+```
+by default user is not added in docker so need to add in docker group and refresh group
+```
+sudo usermod -aG docker $USER && newgrp docker
+```
+
+for installing docker compose in instance
+```
+sudo apt-get install docker-compose-v2
+```
+
+
 
 
    
