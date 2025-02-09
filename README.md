@@ -39,7 +39,7 @@ sudo systemctl enable jenkins
 ```
 ---
 
-**Set up Pipelines**
+**Set up Remote agent**
 
 1. Create Other Instance for agent
    -- set up in second instace
@@ -66,6 +66,38 @@ sudo systemctl enable jenkins
      ```
     This is a Unix agent
     Agent successfully connected and online
+    ```
+---
+**Set up Pipeline**
+
+  ```
+1. basic structure
+pipeline {
+    agent {label "reactCICD"}
+
+    stages {
+        stage('code') {
+            steps {
+                echo 'this will clone code'
+            }
+        }
+         stage('Build') {
+            steps {
+                echo 'this will build code'
+            }
+        }
+         stage('Test') {
+            steps {
+                echo 'this will test code'
+            }
+        }
+         stage('Deploy') {
+            steps {
+                echo 'this will deploy code'
+            }
+        }
+    }
+}
     ```
 
 
