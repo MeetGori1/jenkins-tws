@@ -40,6 +40,27 @@ sudo systemctl enable jenkins
 ---
 
 **Set up Pipelines**
-1. Create Other Instance for agent
 
-1. go with default options and need to create declaritive pipeline
+1. Create Other Instance for agent
+   -- set up in second instace
+   1. neeed to install java manually in it
+   2. ssh into master instance and create public and private key pair using ssh
+    ```
+    cd ~/.ssh
+    ssh-keygen
+    ```
+    3. private ssh key needed in master instance, need to add public key in agent instance
+    4. in agent instance add master instance public key in "authorised_key" file 
+
+2. in master instance select set up agent
+3. put "/home/username" in root directory section
+4. add relevant label
+5. in launch method select "launch via ssh"
+    - in host section add instance's public ip address
+    - add new credentials
+       - in kind select "ssh user name with private key"
+       - fill id, description, username,
+       -select private key and put private ssh key of master instance
+6. in Host Key Verification Strategy select "non verifying verification statergy" and save
+
+   
