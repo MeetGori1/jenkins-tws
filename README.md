@@ -62,5 +62,11 @@ sudo systemctl enable jenkins
        - fill id, description, username,
        -select private key and put private ssh key of master instance
 6. in Host Key Verification Strategy select "non verifying verification statergy" and save
+7. in logs it will show like in end if everything is fine
+     ```
+    This is a Unix agent
+    Agent successfully connected and online
+    ```
+
 
    
