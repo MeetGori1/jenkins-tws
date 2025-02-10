@@ -117,6 +117,52 @@ for installing docker compose in instance
 sudo apt-get install docker-compose-v2
 ```
 
+4. working pipeline sample
+ ```
+   pipeline {
+    agent {label "reactCICD"}
+
+    stages {
+        stage('code') {
+            steps {
+                git url: "https://github.com/MeetGori1/plant-seller-ecommerce.git", branch:"main"
+                echo 'code cloning successfully'
+            }
+        }
+         stage('Build') {
+            steps {
+                echo 'this will build code'
+                sh 'docker compose down'
+            }
+        }
+         stage('Test') {
+            steps {
+                echo 'this will test code'
+            }
+        }
+           stage('Deploy') {
+            steps {
+                echo 'this will deploy code'
+                sh 'docker compose up -d'
+            }
+        }
+          stage('push to docker hub') {
+            steps {
+                echo 'This is pushing image to docker hub'
+                   withCredentials([usernamePassword(
+                    credentialsId:"dockerHubCreds",
+                    usernameVariable:"dockerHubUser", 
+                    passwordVariable:"dockerHubPass")]){
+                sh 'echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin'
+                sh "docker image tag reactcicd-pipeline-frontend:latest ${env.dockerHubUser}/reactcicd-pipeline-frontend:latest"
+                sh "docker push ${env.dockerHubUser}/reactcicd-pipeline-frontend:latest"
+                }
+            }
+        }
+     
+    }
+}
+```
 
 
 
