@@ -164,6 +164,16 @@ sudo apt-get install docker-compose-v2
 }
 ```
 
+---
+**Set up webhook**
+
+1. open project and then go to settings
+2. selct webhook and add webhook
+   - add jenkins url in in payload url ad append "/github-webhook/" in end
+   - disable ssl
+   - then hit save
+   - once commit any new changes it will trigger new build in jenkins
+
 
 
    
