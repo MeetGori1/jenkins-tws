@@ -173,7 +173,4 @@ sudo apt-get install docker-compose-v2
    - disable ssl
    - then hit save
    - once commit any new changes it will trigger new build in jenkins
-
-
-
-   
+  
